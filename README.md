@@ -18,7 +18,7 @@ An AI-powered web app that helps you reimagine your space — upload a photo of 
 
 ## 📌 Progress
 - [x] Project created & pushed to GitHub
-- [ ] Basic page structure
+- [x] Basic page structure
 - [ ] Styling
 - [ ] Upload functionality
 - [ ] AI image generation
