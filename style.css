@@ -30,6 +30,16 @@ main {
   transform: translateY(-3px);
   box-shadow: var(--shadow-lifted);
 }
+#upload-section input[type="file"] {
+  display: block;
+  padding: 1.5rem;
+  border: 2px dashed var(--color-accent);
+  border-radius: 8px;
+  background-color: var(--color-surface);
+  cursor: pointer;
+  width: 100%;
+  max-width: 400px;
+}
 
 section {
   margin-bottom: 3rem;
