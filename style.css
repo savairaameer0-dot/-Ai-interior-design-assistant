@@ -13,6 +13,23 @@ main {
   margin: 0 auto;
   padding: 2rem 1rem;
 }
+.style-option {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  margin-right: 0.75rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.style-option:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lifted);
+}
 
 section {
   margin-bottom: 3rem;
