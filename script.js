@@ -19,3 +19,8 @@ photoInput.addEventListener('change', () => {
     console.log("new src:", resultImage.src);
   }
 });
+const generateBtn = document.getElementById('generate-btn');
+
+generateBtn.addEventListener('click', () => {
+  console.log('Generate button clicked');
+});
