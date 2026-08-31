@@ -40,6 +40,15 @@ main {
   width: 100%;
   max-width: 400px;
 }
+.style-option {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.style-option.selected {
+  background-color: var(--color-primary);
+  color: white;
+}
+
 #result-image {
   display: block;
   max-width: 100%;
