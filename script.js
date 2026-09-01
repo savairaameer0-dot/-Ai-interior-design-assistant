@@ -1,4 +1,5 @@
 console.log("script.js is running");
+
 const styleButtons = document.querySelectorAll('.style-option');
 
 styleButtons.forEach(button => {
@@ -7,6 +8,7 @@ styleButtons.forEach(button => {
     button.classList.add('selected');
   });
 });
+
 const photoInput = document.getElementById('room-photo');
 const resultImage = document.getElementById('result-image');
 
@@ -19,8 +21,17 @@ photoInput.addEventListener('change', () => {
     console.log("new src:", resultImage.src);
   }
 });
+
 const generateBtn = document.getElementById('generate-btn');
 
-generateBtn.addEventListener('click', () => {
+generateBtn.addEventListener('click', async () => {
   console.log('Generate button clicked');
+
+  try {
+    const response = await fetch('/api/generate');
+    const data = await response.json();
+    console.log('Response from server:', data);
+  } catch (error) {
+    console.error('Error calling API:', error);
+  }
 });
