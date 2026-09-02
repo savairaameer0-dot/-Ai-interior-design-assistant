@@ -1,4 +1,3 @@
-cat > style.css << 'EOF'
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500&display=swap');
 
 :root {
@@ -58,4 +57,92 @@ section h2 {
   font-size: 1.1rem;
   color: var(--color-text-muted);
   margin-bottom: 1rem;
+}
+/* Upload */
+#upload-section input[type="file"] {
+  display: block;
+  padding: 1.5rem;
+  border: 1.5px dashed rgba(110, 231, 221, 0.4);
+  border-radius: var(--radius);
+  background-color: var(--color-surface);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  width: 100%;
+  max-width: 400px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#upload-section input[type="file"]:hover {
+  border-color: var(--color-cyan);
+  box-shadow: var(--glow-cyan);
+}
+
+/* Style swatches */
+#style-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.style-option {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+              background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.style-option:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lifted);
+  border-color: rgba(167, 139, 250, 0.5);
+}
+
+.style-option.selected {
+  background-color: var(--color-surface-lit);
+  border-color: var(--color-violet);
+  color: var(--color-violet);
+  box-shadow: var(--glow-violet);
+}
+
+#generate-btn {
+  background-color: var(--color-cyan);
+  color: #0d1117;
+  border: none;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+#generate-btn:hover {
+  box-shadow: var(--glow-cyan);
+  transform: translateY(-2px);
+}
+
+/* Result */
+#result-image {
+  display: block;
+  max-width: 100%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lifted);
+  margin-top: 1rem;
+  background-color: var(--color-surface);
+  min-height: 2px;
+}
+
+#furniture-suggestions,
+#color-suggestions {
+  color: var(--color-text-muted);
+  margin-top: 1rem;
 }
