@@ -2,8 +2,9 @@
 
 :root {
   --color-bg: #0d1117;
-  --color-surface: #161b26;
-  --color-surface-lit: #1c2436;
+  --color-panel: #141a24;
+  --color-surface: #1b2230;
+  --color-surface-lit: #232b3d;
   --color-text: #edf1f7;
   --color-text-muted: #8891a5;
   --color-cyan: #6ee7dd;
@@ -49,6 +50,13 @@ header h1 {
 
 section {
   margin-bottom: 3rem;
+}
+section {
+  background-color: var(--color-panel);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-soft);
 }
 
 section h2 {
