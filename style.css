@@ -39,6 +39,20 @@ header {
   padding: 3rem 1rem 2.5rem;
   text-align: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  position: relative;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 300px;
+  background: radial-gradient(ellipse, rgba(110, 231, 221, 0.15), transparent 70%);
+  pointer-events: none;
+  z-index: -1;
 }
 
 header h1 {
@@ -50,8 +64,6 @@ header h1 {
 
 section {
   margin-bottom: 3rem;
-}
-section {
   background-color: var(--color-panel);
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: var(--radius);
@@ -66,23 +78,39 @@ section h2 {
   color: var(--color-text-muted);
   margin-bottom: 1rem;
 }
+
 /* Upload */
-#upload-section input[type="file"] {
-  display: block;
+#upload-dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 160px;
   padding: 1.5rem;
   border: 1.5px dashed rgba(110, 231, 221, 0.4);
   border-radius: var(--radius);
   background-color: var(--color-surface);
   color: var(--color-text-muted);
   cursor: pointer;
-  width: 100%;
-  max-width: 400px;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-#upload-section input[type="file"]:hover {
+#upload-dropzone:hover,
+#upload-dropzone.dragover {
   border-color: var(--color-cyan);
   box-shadow: var(--glow-cyan);
+}
+
+#upload-icon {
+  font-size: 1.75rem;
+}
+
+#upload-preview {
+  display: none;
+  max-width: 100%;
+  max-height: 220px;
+  border-radius: var(--radius);
 }
 
 /* Style swatches */
@@ -96,7 +124,7 @@ section h2 {
 .style-option {
   background-color: var(--color-surface);
   color: var(--color-text);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   padding: 0.75rem 1.5rem;
   border-radius: var(--radius);
   font-family: 'Inter', sans-serif;
@@ -139,14 +167,26 @@ section h2 {
 }
 
 /* Result */
+#result-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+  background-color: var(--color-surface);
+  border: 1.5px dashed rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius);
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  text-align: center;
+  padding: 1rem;
+}
+
 #result-image {
-  display: block;
+  display: none;
   max-width: 100%;
   border-radius: var(--radius);
   box-shadow: var(--shadow-lifted);
   margin-top: 1rem;
-  background-color: var(--color-surface);
-  min-height: 2px;
 }
 
 #furniture-suggestions,
@@ -154,27 +194,7 @@ section h2 {
   color: var(--color-text-muted);
   margin-top: 1rem;
 }
-/* Ambient glow so the page has presence even before interaction */
-header {
-  position: relative;
-}
 
-header::before {
-  content: '';
-  position: absolute;
-  top: -40%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 500px;
-  height: 300px;
-  background: radial-gradient(ellipse, rgba(110, 231, 221, 0.15), transparent 70%);
-  pointer-events: none;
-  z-index: -1;
-}
-
-.style-option {
-  border-color: rgba(255, 255, 255, 0.12);
-}
 /* Responsive adjustments */
 @media (max-width: 640px) {
   main {
@@ -193,7 +213,6 @@ header::before {
     font-size: 1rem;
   }
 
-  /* Stack the style swatches + generate button vertically, full width */
   #style-section {
     flex-direction: column;
     align-items: stretch;
@@ -203,11 +222,10 @@ header::before {
   #generate-btn {
     width: 100%;
     text-align: center;
-    padding: 0.85rem 1rem; /* slightly taller for comfortable tap targets */
+    padding: 0.85rem 1rem;
   }
 
-  #upload-section input[type="file"] {
-    max-width: 100%;
+  #upload-dropzone {
     padding: 1.25rem 1rem;
   }
 
