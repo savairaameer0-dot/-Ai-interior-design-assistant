@@ -15,22 +15,34 @@
   <main>
     <section id="upload-section">
   <h2>Upload Your Room</h2>
-  <input type="file" id="room-photo" accept="image/*">
+  <label id="upload-dropzone" for="room-photo">
+    <input type="file" id="room-photo" accept="image/*" hidden>
+    <div id="upload-dropzone-content">
+      <span id="upload-icon">📷</span>
+      <span id="upload-text">Drag & drop a photo, or click to browse</span>
+    </div>
+    <img id="upload-preview" alt="Room preview">
+  </label>
 </section>
 
     <section id="style-section">
   <h2>Choose a Style</h2>
-  <button class="style-option" data-style="modern">Modern</button>
-  <button class="style-option" data-style="minimalist">Minimalist</button>
-  <button class="style-option" data-style="bohemian">Bohemian</button>
-  <button class="style-option" data-style="industrial">Industrial</button>
+  <div id="style-options">
+    <button class="style-option" data-style="modern">Modern</button>
+    <button class="style-option" data-style="minimalist">Minimalist</button>
+    <button class="style-option" data-style="bohemian">Bohemian</button>
+    <button class="style-option" data-style="industrial">Industrial</button>
+  </div>
   <button id="generate-btn">Generate Design</button>
 </section>
 
-<div id="result-placeholder">
-  <span>🖼️ Your redesigned room will appear here</span>
-</div>
-<img id="result-image" alt="Redesigned room will appear here" style="display: none;">
+<section id="result-section">
+  <h2>Your Redesigned Room</h2>
+  <div id="result-placeholder">
+    <span>🖼️ Your redesigned room will appear here</span>
+  </div>
+  <img id="result-image" alt="Redesigned room will appear here" style="display: none;">
+</section>
 
 
   </main>
